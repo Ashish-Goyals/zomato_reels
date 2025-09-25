@@ -3,6 +3,7 @@ const app = express ();
 const cookieParser = require ('cookie-parser');
 const cors = require ('cors');
 
+const foodPartnerRoutes = require ('./routes/food-partner.routes');
 app.use (
   cors ({
     origin: '*',
@@ -16,6 +17,8 @@ app.use (express.json ());
 
 const authRoutes = require ('./routes/auth.routes');
 const foodRoutes = require ('./routes/food.routes');
+
+app.use ('/api/food-partner', foodPartnerRoutes);
 app.use ('/api/auth', authRoutes);
 app.use ('/api/food', foodRoutes);
 
